@@ -1,6 +1,6 @@
 Desafio Docker nginx com nodejs da fullcycle
 
-Basta rodar o comando docker-compose up -d --build <br/>(Na primeira execução tem que colocar o --build para buildar os containers, a partir da segunda execução não precisa usar - --build)
+Basta rodar o comando docker-compose up -d
 
 Após subir os containers com o comando acima, pode chamar a URL http://localhost:8080 <br/>(Obs. Precisei colocar um delay de alguns segundos para rodar a aplicacao do node no container app, para garantir que o banco mysql do container db fosse criado antes, e a table people fosse criada dentro desse banco(container init-db). Com isso, caso rode o coamndo docker-compose citado acima e imediatamente tentar acessar a URL http://localhost:8080, pode obter um HTTP 502 - bad gateway server pois o container app,com a aplicação node ainda não subiu a aplicação. Caso isso ocorra, aguarde mais alguns segundos e tente invocar a URL novamente.)
 
