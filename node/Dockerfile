@@ -11,9 +11,9 @@ RUN apt-get update \
 
 
 COPY package*.json ./
-RUN npm install
-#RUN npm install express --save && \
-#    npm install mysql --save
+#RUN npm install
+RUN npm install express --save && \
+    npm install mysql --save
 
 COPY . .
 

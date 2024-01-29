@@ -20,9 +20,12 @@ services:
     build:
       context: node
     container_name: app
-    command: bash -c "sleep 15 && node index.js"
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+    command: bash -c "npm install && sleep 12 && node index.js"
     networks:
       - node-network
+    volumes:
+      - ./node:/usr/src/app
     tty: true
     ports:
       - "3000:3000"
@@ -45,6 +48,7 @@ services:
 
   init-db:
     image: mysql:5.7
+    container_name: init-db
     command: bash -c "sleep 10 && mysql -hdb -uroot -proot nodedb < /docker-entrypoint-initdb.d/create_table.sql"
     depends_on:
       - db

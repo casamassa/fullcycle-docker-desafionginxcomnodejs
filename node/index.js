@@ -18,7 +18,7 @@ const selectSql = 'SELECT name FROM people';
 
 function generateResponseString(results) {
     const names = results.map(result => result.name);
-    const responseString = `<h1>Full Cycle Rocks!</h1><p>Names: ${names.join(', ')}</p>`;
+    const responseString = `<h1>Full Cycle Rocks!</h1><p>Nomes: ${names.join(', ')}</p>`;
     return responseString;
 }
 
