@@ -10,12 +10,12 @@ RUN apt-get update \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
 
 
-COPY package*.json ./
+#COPY package*.json ./
 #RUN npm install
-RUN npm install express --save && \
-    npm install mysql --save
+#RUN npm install express --save && \
+#    npm install mysql --save
 
-COPY . .
+#COPY . .
 
 EXPOSE 3000
 
